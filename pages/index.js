@@ -26,34 +26,27 @@ export default function Home() {
           <Link href="/learn/nextjs">
             <a className={styles.card}>
               <h2>Learn NextJS &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
             </a>
           </Link>
 
           <Link href="/learn/react">
             <a href="https://nextjs.org/learn" className={styles.card}>
               <h2>Learn React &rarr;</h2>
-              <p>Learn about React.js in an interactive course with quizzes!</p>
             </a>
           </Link>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <Link href="/learn/angular">
+            <a className={styles.card}>
+              <h2>Learn Angular &rarr;</h2>
+            </a>
+          </Link>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+
+          <Link href="/learn/vue">
+            <a className={styles.card}>
+              <h2>Learn Vue &rarr;</h2>
+            </a>
+          </Link>
         </div>
       </main>
 
