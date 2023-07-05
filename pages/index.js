@@ -1,10 +1,20 @@
+import {useState} from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from "next/link"
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
+import { useRouter } from "next/router"
 
 export default function Home() {
+  const [query, getQuery] = useState();
+  const router = useRouter()
+  const handleOnChange = e => getQuery(e.target.value)
+  const handleOnSubmit = e => {
+    e.preventDefault()
+    router.push(`/news/${query}`)
+  }
+
   return (
     <Layout>
       <Head>
@@ -49,12 +59,22 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="/news/">
-            <a className={styles.card}>
-              <h2>Top Stories &rarr;</h2>
-              <p>Read articles currently on the homepage</p>
-            </a>
-          </Link>
+          <main className={styles.main}>
+            <h1 className={styles.title}>News Feed</h1>
+
+            <form onSubmit={handleOnSubmit}>
+              <input type="text" onChange={handleOnChange} />
+            </form>
+
+            <div className={styles.grid}>
+              <Link href="/news/">
+                <a className={styles.card}>
+                  <h2>Top Stories &rarr;</h2>
+                  <p>Read articles currently on the homepage</p>
+                </a>
+              </Link>
+            </div>
+          </main>
         </div>
       </main>
 
