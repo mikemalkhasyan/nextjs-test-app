@@ -1,13 +1,19 @@
 import Layout from "../../components/Layout"
+
 export default function News({ results }) {
-    console.log('results::', results);
     return(
     <Layout>
       <h1>Top Stories</h1>
+      {results.map(result => {
+        return(
+          <li key={result.uri}>
+            <a href={result.url} target="_blank" rel="noopener norefferer">{result.title}</a>
+          </li>
+        )
+      })}
     </Layout>
     )
 }
-
 
 const API_KEY = "S94KkDkSRG7qng1LjjmQZDjPUFiIPF0u"
 export async function getStaticProps() {
