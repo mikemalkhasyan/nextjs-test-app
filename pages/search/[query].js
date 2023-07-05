@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout"
 import { search } from "../api"
+import { NYT_API_KEY } from '../../config/api'
 
 export default function News({ results, query }) {
     return(
@@ -14,10 +15,8 @@ export default function News({ results, query }) {
     )
 }
 
-// to register for a new New York Times API KEY, visit : 
-const API_KEY = "S94KkDkSRG7qng1LjjmQZDjPUFiIPF0u"
 export async function getServerSideProps({  params }) {
-  const results = await search(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${params.query}&api-key=${API_KEY}`
+  const results = await search(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${params.query}&api-key=${NYT_API_KEY}`
   )
   return { props: { results, query: params.query } }
 

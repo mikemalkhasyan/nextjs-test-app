@@ -1,0 +1,1 @@
+export const NYT_API_KEY = 'S94KkDkSRG7qng1LjjmQZDjPUFiIPF0u'

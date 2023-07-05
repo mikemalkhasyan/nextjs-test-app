@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout from "../../components/Layout"
 import { handler } from "../api";
+import { NYT_API_KEY } from '../../config/api'
 
 function News({ results, title }) {
   return (
@@ -29,10 +30,9 @@ export async function getStaticPaths() {
     fallback: true // false or 'blocking'
   };
 }
-const API_KEY = "S94KkDkSRG7qng1LjjmQZDjPUFiIPF0u"
 export async function getStaticProps({ params }) {
-  const TOP_STORIES_URL = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${API_KEY}`
-  const POPULAR_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`
+  const TOP_STORIES_URL = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${NYT_API_KEY}`
+  const POPULAR_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NYT_API_KEY}`
 
    // The value of the `props` key will be
   //  passed to the `Home` component
